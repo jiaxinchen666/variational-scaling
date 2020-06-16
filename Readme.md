@@ -3,11 +3,13 @@
 ### Dataset
 
 Download the images: https://drive.google.com/open?id=0B3Irx3uQNoBMQ1FlNXJsZUdYWEE
+
 Make a folder materials/images and put those images into it.
 
 ### Requirements
 
 scripy==1.1.0
+
 pytorch==0.4.0
 
 ### Train
