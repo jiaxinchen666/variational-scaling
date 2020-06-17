@@ -14,7 +14,8 @@ from utils import pprint, set_gpu, count_acc, Averager, euclidean_metric,dot_met
 accuracy_list=[]
 loss_list=[]
 for eee in range(5):
-    path='./euclidean_prob_init_'+str(100.0)+'_prior_'+str(1.0)+'_'+str(eee)
+    #path='./euclidean_prob_init_'+str(100.0)+'_prior_'+str(1.0)+'_'+str(eee)
+    path='./multiscale/cosine_1shot_init_100.0_lr_100.0_'+str(eee)
     if __name__ == '__main__':
         parser = argparse.ArgumentParser()
         parser.add_argument('--gpu', default='0')
@@ -25,8 +26,8 @@ for eee in range(5):
         parser.add_argument('--query', type=int, default=1)
         parser.add_argument('--bound', type=int, default=1)
         parser.add_argument('--bound_correct', default=True)
-        parser.add_argument('--multi',default=False)
-        parser.add_argument('--distance',type=str,default='euclidean')
+        parser.add_argument('--multi',default=True)
+        parser.add_argument('--distance',type=str,default='cosine')
         args = parser.parse_args()
         pprint(vars(args))
 
@@ -58,7 +59,6 @@ for eee in range(5):
                 l=torch.load(path+'/trlog')
                 B = l['mean'][list.index(l['val_acc'], max(l['val_acc']))]
                 B=torch.tensor(B).cuda()
-            B=1.0
 
             if args.bound_correct:
                 if args.distance=='cosine':
