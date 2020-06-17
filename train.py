@@ -26,14 +26,13 @@ for run_time in range(5):
         parser.add_argument('--loss',default=True)
         parser.add_argument('--init_mean',default=100.0)
         parser.add_argument('--init_var',default=0.2)
-        parser.add_argument('--lr',default=0.001)
+        parser.add_argument('--lr',default=0.0001)
         parser.add_argument('--prior_mean',default=1.0)
         parser.add_argument('--prior_var',default=1.0)
 
         args = parser.parse_args()
 
-    save_path ='./' + args.distance+'_init_'+str(args.init_mean)\
-               +'_prior_'+str(args.prior_mean)+'_'+str(run_time)
+    save_path ='./' + args.distance+'_shot_'+str(args.shot)+'_'+str(run_time)
 
     pprint(vars(args))
 

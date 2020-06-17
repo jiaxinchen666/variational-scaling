@@ -13,16 +13,15 @@ from utils import pprint, set_gpu, count_acc, Averager, euclidean_metric,dot_met
 
 accuracy_list=[]
 loss_list=[]
-for eee in range(5):
-    #path='./euclidean_prob_init_'+str(100.0)+'_prior_'+str(1.0)+'_'+str(eee)
-    path='./multiscale/cosine_1shot_init_100.0_lr_100.0_'+str(eee)
+for run_time in range(5):
+    path='./multiscale/cosine_1shot_init_100.0_lr_100.0_'+str(run_time)
     if __name__ == '__main__':
         parser = argparse.ArgumentParser()
         parser.add_argument('--gpu', default='0')
         parser.add_argument('--load', default=path+'/max-acc.pth')
         parser.add_argument('--batch', type=int, default=10000)
         parser.add_argument('--way', type=int, default=5)
-        parser.add_argument('--shot', type=int, default=5)
+        parser.add_argument('--shot', type=int, default=1)
         parser.add_argument('--query', type=int, default=1)
         parser.add_argument('--bound', type=int, default=1)
         parser.add_argument('--bound_correct', default=True)

@@ -12,7 +12,7 @@ from convnet import Convnet
 from utils import pprint, set_gpu, ensure_path, Averager, Timer, count_acc, euclidean_metric,dot_metric,\
     dot_metric_normalize,euclidean_metric_normalize,scaling,sample,\
     Bufferswitch,euclidean_normalize_multiscale,dot_normalize_multiscale
-for i in range(5):
+for run_time in range(5):
     if __name__ == '__main__':
         parser = argparse.ArgumentParser()
         parser.add_argument('--max-epoch', type=int, default=300)
@@ -26,14 +26,14 @@ for i in range(5):
         parser.add_argument('--distance', type=str, default='cosine')
         parser.add_argument('--loss',default=True)
         parser.add_argument('--init_mean',default=100.0)
-        parser.add_argument('--init_var',default=2.0)
-        parser.add_argument('--lr',default=1.0)
+        parser.add_argument('--init_var',default=0.2)
+        parser.add_argument('--lr',default=0.16)
         parser.add_argument('--prior_mean',default=1.0)
         parser.add_argument('--prior_var',default=1600.0)
 
         args = parser.parse_args()
 
-    save_path='./multiscale/'+args.distance+'_1shot_init_100.0_'+'lr_100.0_'+str(i)
+    save_path='./multiscale/'+args.distance+'_shot_'+str(args.shot)+'_'+str(run_time)
 
     pprint(vars(args))
 

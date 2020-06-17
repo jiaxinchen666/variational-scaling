@@ -14,7 +14,7 @@ from utils import pprint, set_gpu, ensure_path, Averager, Timer, count_acc, eucl
     euclidean_multiscale,dot_normalize_multiscale
 from torch import nn
 
-for i in range(5):
+for run_time in range(5):
     if __name__ == '__main__':
         parser = argparse.ArgumentParser()
         parser.add_argument('--max-epoch', type=int, default=200)
@@ -27,15 +27,11 @@ for i in range(5):
         parser.add_argument('--bound_correct', default=True)
         parser.add_argument('--distance', type=str, default='euclidean')
         parser.add_argument('--multi',default=True)
-        #parser.add_argument('--lr',default=0.0001)
         parser.add_argument('--prior_mean',default=100.0)
-        parser.add_argument('--prior_var',default=1600.0)
-        parser.add_argument('--log_uniform_prior',default=False)
 
         args = parser.parse_args()
 
-    save_path='./gen/'+args.distance+'_5shot_lamb150_noprior'+str(i)
-    #save_path='./gen/test__'+str(i)
+    save_path='./gen/'+args.distance+'_shot_'+str(args.shot)+'_lamb150_noprior'+str(run_time)
     pprint(vars(args))
 
     set_gpu(args.gpu)
