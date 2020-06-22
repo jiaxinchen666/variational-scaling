@@ -133,7 +133,7 @@ for run_time in range(5):
             else:
                 logits, logits_no = dot_normalize_multiscale(query, proto, B_no)
 
-            loss = (1-lamb)*(F.cross_entropy(logits_scaled, label,size_average=False))+lamb*F.cross_entropy(logits_no, label,size_average=False)
+            loss = (1-lamb)*(F.cross_entropy(logits_scaled, label,size_average=True))+lamb*F.cross_entropy(logits_no, label,size_average=True)
 
             acc = count_acc(logits_scaled, label)
 
@@ -192,7 +192,7 @@ for run_time in range(5):
             else:
                 logits, logits_no = dot_normalize_multiscale(query, proto, B_no)
 
-            loss = (1-lamb)*(F.cross_entropy(logits_scaled, label,size_average=False))+lamb*F.cross_entropy(logits_no, label,size_average=False)
+            loss = (1-lamb)*(F.cross_entropy(logits_scaled, label,size_average=True))+lamb*F.cross_entropy(logits_no, label,size_average=True)
             acc = count_acc(logits_scaled, label)
 
             vl.add(loss.item())
