@@ -14,8 +14,8 @@ from utils import pprint, set_gpu, count_acc, Averager, euclidean_metric,dot_met
 accuracy_list=[]
 loss_list=[]
 for runtime in range(5):
-    path1='./gen/euclidean_5shot_lamb100_noprior'+str(runtime)+'/max-acc.pth'
-    path2 ='./gen/euclidean_5shot_lamb100_noprior'+str(runtime)+'/max-acc-gen.pth'
+    path1='./gen/euclidean_shot_5_lamb100_noprior'+str(runtime)+'/max-acc.pth'
+    path2 ='./gen/euclidean_shot_5_lamb100_noprior'+str(runtime)+'/max-acc-gen.pth'
     if __name__ == '__main__':
         parser = argparse.ArgumentParser()
         parser.add_argument('--gpu', default='0')
